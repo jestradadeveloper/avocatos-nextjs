@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Navbar from '../components/Navbar/Navbar'
+import fetch from 'isomorphic-unfetch'
 import Layout from '@components/Layout/Layout'
 import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
 import ProductList from '@components/ProductList/ProductList'
-const HomePage = () => {
-  const [productList, setproductList] = useState<TProduct[]>([])
-  useEffect(() => {
-    window
-      .fetch('/api/avo')
-      .then((response) => response.json())
-      .then(({ data, length }) => {
-        setproductList(data)
-      })
-  }, [])
+
+export const getServerSideProps = async () => {
+  const response = await fetch('https://avocatos-nextjs.vercel.app/api/avo')
+  const { data: productList }: TAPIAvoResponse = await response.json()
+
+  return {
+    props: {
+      productList,
+    },
+  }
+}
+const HomePage = ({ productList }: { productList: TProduct[] }) => {
   return (
     <Layout>
       <KawaiiHeader />
