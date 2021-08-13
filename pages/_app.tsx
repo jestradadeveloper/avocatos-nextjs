@@ -1,10 +1,13 @@
 import Layout from '@components/Layout/Layout'
 import 'semantic-ui-css/semantic.min.css'
 import '../global.css'
-import { AppProps } from 'next/app'
+import { AppProps, NextWebVitalsMetric } from 'next/app'
 
 //import '../style.css'
 import CartProvider from '@store/Cart'
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  console.log(metric)
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
   //es perfecto para usar providers,  context /  theme, data
