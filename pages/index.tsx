@@ -27,7 +27,7 @@ const HomePage = () => {
         section {
           text-align: center;
           margin-bottom: 2rem;
-          margin-top: 5px;
+          margin-top: 2rem;
         }
       `}</style>
     </Layout>
