@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@database": ["database/db.ts"]
+      "@database": ["database/db.ts"],
+      "@cors": ["cors-middleware.ts"],
+      "@components/*": ["components/*"],
+      "@store/*": ["store/*"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -19,5 +22,12 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/Layout/pages/about/index.js",
+    "components/Layout/pages/index.js",
+    "components/Layout/pages/product/[id].js"
+  ]
 }
