@@ -5,8 +5,9 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '@components/Layout/Layout'
 import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
 import ProductList from '@components/ProductList/ProductList'
-
-export const getServerSideProps = async () => {
+//getServerSideProps
+//getStaticProps
+export const getStaticProps = async () => {
   const response = await fetch('https://avocatos-nextjs.vercel.app/api/avo')
   const { data: productList }: TAPIAvoResponse = await response.json()
 
